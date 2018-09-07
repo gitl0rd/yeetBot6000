@@ -91,7 +91,16 @@ def log(msg, *args, **kwargs):  # simple wrapper for logging to stdout on heroku
     sys.stdout.flush()
 
 def reply(sender_id, message_text):
-    send_message(sender_id, "yeet")
+    msg = ""
+    responses = {
+        "time please":str(datetime.datetime.now()),
+        "hi":"yah",
+        }
+    if (message_text in responses):
+        msg = responses[message_text]
+    else:
+        msg = "yeet"
+    send_message(sender_id, msg)
 
 if __name__ == '__main__':
     app.run(debug=True)
