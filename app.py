@@ -40,7 +40,8 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    send_message(sender_id, "roger that!")
+                    #send_message(sender_id, "roger that!")
+                    reply(sender_id, message_text)
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
@@ -89,6 +90,8 @@ def log(msg, *args, **kwargs):  # simple wrapper for logging to stdout on heroku
         pass  # squash logging errors in case of non-ascii text
     sys.stdout.flush()
 
+def reply(sender_id, message_text):
+    send_message(sender_id, "yeet")
 
 if __name__ == '__main__':
     app.run(debug=True)
