@@ -93,7 +93,7 @@ def log(msg, *args, **kwargs):  # simple wrapper for logging to stdout on heroku
 def reply(sender_id, message_text):
     msg = ""
     responses = {
-        "time please":str(datetime.datetime.now()),
+        "time please":str(datetime.now()),
         "hi":"yah",
         }
     if (message_text in responses):
